@@ -1,6 +1,7 @@
 { pkgs }: {
 	deps = [
-		pkgs.httpie
+		pkgs.nano
+  pkgs.httpie
   pkgs.nodejs-16_x
         pkgs.nodePackages.typescript-language-server
         pkgs.nodePackages.yarn

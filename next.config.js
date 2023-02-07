@@ -1,6 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+const dotenv = require('dotenv');
 
-module.exports = nextConfig
+dotenv.config();
+
+module.exports = {
+  env: {
+    SERVER_API_URL: process.env.SERVER_API_URL,
+    OPENWEATHERMAP_API_KEY: process.env.OPENWEATHERMAP_API_KEY
+  },
+};

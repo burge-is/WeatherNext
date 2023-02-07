@@ -6,9 +6,7 @@ import HourlyWeatherCard from "../../components/HourlyWeatherCard";
 import Link from "next/link";
 import { isValidUSZip } from "../../utils/zip.utils";
 
-// move this into a process.env variable so it can be changed
-// based on where we deploy this app, hard-coded for now
-const API_URL = "https://weathernext.burge-is.repl.co";
+const SERVER_API_URL = process.env['SERVER_API_URL'];
 
 const WeatherForZip = () => {
   const router = useRouter();
@@ -23,7 +21,7 @@ const WeatherForZip = () => {
 
     setHasError(!isValidUSZip(router.query.zip));
 
-    const weatherAPI = `${API_URL}/api/weather/${router.query.zip}`;
+    const weatherAPI = `${SERVER_API_URL}/api/weather/${router.query.zip}`;
     fetch(weatherAPI).then(async (res) => {
       try {
         const { data } = await res.json();
